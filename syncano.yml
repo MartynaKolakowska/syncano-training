@@ -1,0 +1,5 @@
+hosting:
+  test:
+    src: my-app/build
+    config:
+      browser_router: true
