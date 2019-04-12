@@ -1,0 +1,17 @@
+name: events
+description: Description of events
+
+classes:
+  task:
+    - name: todo
+      type: string
+    - name: date
+      type: datetime
+
+endpoints:
+  create:
+    description: Create task
+  list:
+    description: List tasks
+  remove:
+    description: Remove task
