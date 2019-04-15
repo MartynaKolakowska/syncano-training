@@ -2,6 +2,8 @@ import Syncano from '@syncano/client';
 import * as React from 'react';
 import './App.css';
 
+import Button from 'antd/lib/button';
+
 import logo from './logo.svg';
 
 
@@ -108,6 +110,7 @@ class App extends React.Component<any, IState> {
               }
             </ul>
           </div>
+          <Button type="primary">Button</Button>
         </header>
 
       </div>
