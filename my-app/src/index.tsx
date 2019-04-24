@@ -4,7 +4,6 @@ import App from './App';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-// import { getSnapshot, destroy, onSnapshot} from 'mobx-state-tree'
 
 import TodoStore from './models/ToDo';
 

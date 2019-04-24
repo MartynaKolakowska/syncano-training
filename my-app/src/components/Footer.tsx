@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { observer } from 'mobx-react'
+import { observer } from 'mobx-react';
+
+import {Typography, Button} from 'antd';
 
 interface IProps {
     store:any
@@ -10,12 +12,13 @@ export default observer(
     class Footer extends React.Component<IProps, any>{
 
         public renderTodoCount = () => {
+            const {Text} = Typography;
             const { activeCount } = this.props.store;
             const itemWord= activeCount === 1 ? "item" : "items";
             return(
-                <span>
+                <Text>
                     <strong>{activeCount || "No" }</strong> {itemWord} left
-                </span>
+                </Text>
             )
         }
 
@@ -23,7 +26,12 @@ export default observer(
             const { doneCount, clearDone } = this.props.store;
             if(doneCount > 0) {
                 return (
-                    <button onClick = {() => clearDone()}>Clear completed</button>
+                    <Button 
+                    type="dashed" 
+                    onClick = {() => clearDone()}
+                    size="small"
+                    >
+                    Clear completed</Button>
                 )
             }else {return null};
         }

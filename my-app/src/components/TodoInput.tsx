@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import {Input, Button} from 'antd';
+
 interface IProps {
     text?: string,
     onSave?: any,
@@ -36,13 +38,20 @@ export default class TodoInput extends React.Component<IProps, IState> {
         public render() {
             return (
                 <div>
-                    <input
-                        type="text"
+                    <Input className ="input-width"
                         placeholder = {this.props.placeholder}
                         value = {this.state.text}
                         onChange = {this.handleChange}
                     />
-                    <button onClick = {this.handleSubmit}>Submit</button>
+                    <Button 
+                        ghost={true}
+                        type ="primary"
+                        onClick = {this.handleSubmit}
+                        >
+                        Submit
+                    </Button>
+                        
+                   
                 </div>
             )
         }

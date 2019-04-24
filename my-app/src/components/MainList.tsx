@@ -3,6 +3,8 @@ import * as React from 'react';
 import Footer from './Footer';
 import TodoItem from './TodoItem';
 
+import {Divider, Checkbox} from 'antd';
+
 import { observer } from 'mobx-react'
 
 interface IProps {
@@ -19,15 +21,13 @@ export default observer(
                 const { store } = this.props;
                 if( store.todos.length > 0){
                     return (
-                        <span>
-                            <input
-                                id = "toggle-all"
-                                type = "checkbox"
+                        <div className ="toggle-all">
+                            <Checkbox
                                 checked = {store.doneCount === store.todos.length}
                                 onChange = { () => store.completeAll()}
                             />
                             <label htmlFor="toggle-all">Mark all as complete</label>
-                        </span>
+                        </div>
                     )
                 }else {return null};
             }
@@ -43,6 +43,7 @@ export default observer(
                 return (
                     <section>
                         {this.renderToggleAll()}
+                        <Divider />
                         <ul>
                             {this.props.store.todos.map((todo : any) => <TodoItem key={todo.id} todo={todo} />)}
                         </ul>

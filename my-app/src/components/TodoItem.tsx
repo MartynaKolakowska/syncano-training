@@ -2,6 +2,8 @@ import * as React from "react";
 
 import TodoInput from './TodoInput';
 
+import {Checkbox, Button, Divider} from 'antd'
+
 import { observer } from 'mobx-react';
 
 interface IProps {
@@ -49,20 +51,26 @@ export default observer(
             )
             :
             element =(
-                <div>
-                    <input
-                        type = "checkbox"
+                <div className="list-element">
+                    <Checkbox
                         checked = {todo.done}
                         onChange = {()=> todo.doneTask()}
                     />
                     <label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
-                    <button onClick={() => todo.remove()}>Remove</button>
+                    <Button 
+                    ghost = {true}
+                    type ="danger"
+                    size ="small"
+                    onClick={() => todo.remove()}
+                    >Remove</Button>
+                    <Divider />
                 </div>
             )
             return (
-                <li>
-                    {element}
-                </li>
+                    <div>
+                        {element}
+                    </div>
+
             )
         }
     }
